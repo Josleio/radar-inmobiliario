@@ -1,0 +1,6 @@
+requests
+beautifulsoup4
+cloudscraper
+pandas
+pyarrow
+duckdb
