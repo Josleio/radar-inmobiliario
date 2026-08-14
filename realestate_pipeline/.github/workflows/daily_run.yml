@@ -1,0 +1,13 @@
+name: daily_run
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show scaffold status
+        run: echo "Pipeline scaffold ready"
