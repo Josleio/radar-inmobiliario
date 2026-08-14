@@ -49,6 +49,16 @@ El flujo de datos está estructurado en tres capas lógicas para garantizar resi
 *   **Silver (Datos Limpios):** Estandarización relacional y sanitización de seguridad.
 *   **Gold (Analítica):** Modelos dimensionales y agregaciones (Pendiente de implementación).
 
+## Structure
+
+- `src/utils`: shared helpers
+- `src/bronze`: raw ingestion layer
+- `src/silver`: cleaning layer
+- `src/gold`: database and modeling layer
+- `src/notifications`: alerting layer
+- `tests`: test placeholders and mock data
+
+
 ```text
 realestate_analytics/
 ├── data/
