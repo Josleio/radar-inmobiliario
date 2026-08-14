@@ -1,4 +1,4 @@
-#pipeline
+# pipeline
 ## Structure
 
 - `src/utils`: shared helpers
