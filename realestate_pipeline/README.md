@@ -1,7 +1,4 @@
-# realestate_pipeline
-
-Project scaffold for a real estate ETL pipeline.
-
+#pipeline
 ## Structure
 
 - `src/utils`: shared helpers
