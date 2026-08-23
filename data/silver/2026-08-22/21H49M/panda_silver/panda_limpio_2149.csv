@@ -1,0 +1,462 @@
+id_inmueble,fuente,barrio,precio_cop,area_m2,habitaciones,banos,precio_x_m2
+PANDA-5008600,Panda Inmobiliaria,Poblado,0,43,0,1,0.0
+PANDA-5468246,Panda Inmobiliaria,Central,0,78,2,2,0.0
+PANDA-5526756,Panda Inmobiliaria,Sierra Morena,0,2167,0,0,0.0
+PANDA-5530632,Panda Inmobiliaria,La Estrella,0,865,0,5,0.0
+PANDA-5721628,Panda Inmobiliaria,San Marcos,0,160,4,2,0.0
+PANDA-6031294,Panda Inmobiliaria,Centro,0,240,1,2,0.0
+PANDA-6044288,Panda Inmobiliaria,La Magnolia,0,120,3,2,0.0
+PANDA-6199719,Panda Inmobiliaria,El Portal,0,300,4,5,0.0
+PANDA-6248287,Panda Inmobiliaria,Centro,0,153,0,0,0.0
+PANDA-6276045,Panda Inmobiliaria,Centro,0,154,0,2,0.0
+PANDA-6310684,Panda Inmobiliaria,La Troja,0,1645,0,0,0.0
+PANDA-6324143,Panda Inmobiliaria,Cervantes,0,25,0,1,0.0
+PANDA-6349240,Panda Inmobiliaria,Centro,0,40,0,1,0.0
+PANDA-6349260,Panda Inmobiliaria,Centro,0,40,0,1,0.0
+PANDA-6349334,Panda Inmobiliaria,Centro,0,40,0,1,0.0
+PANDA-6349341,Panda Inmobiliaria,Centro,0,40,0,1,0.0
+PANDA-6434687,Panda Inmobiliaria,Las Casitas,0,37,0,1,0.0
+PANDA-6488049,Panda Inmobiliaria,San Isidro,0,200,3,2,0.0
+PANDA-6521186,Panda Inmobiliaria,Centro,0,33,0,2,0.0
+PANDA-6588111,Panda Inmobiliaria,Poblado,0,68,0,1,0.0
+PANDA-6670950,Panda Inmobiliaria,San Marcos,0,60,0,1,0.0
+PANDA-6672922,Panda Inmobiliaria,Las Margaritas,0,126,0,2,0.0
+PANDA-6721347,Panda Inmobiliaria,La Floresta,0,80,2,2,0.0
+PANDA-6757394,Panda Inmobiliaria,Tablaza,0,52,2,2,0.0
+PANDA-6772693,Panda Inmobiliaria,Santa Barbara,0,62,2,1,0.0
+PANDA-6776672,Panda Inmobiliaria,Las Casitas,0,37,0,1,0.0
+PANDA-6808590,Panda Inmobiliaria,Conquistadores,0,140,0,1,0.0
+PANDA-6828721,Panda Inmobiliaria,Sabaneta,0,67,2,2,0.0
+PANDA-6896256,Panda Inmobiliaria,Centro,0,30,0,1,0.0
+PANDA-7047476,Panda Inmobiliaria,El Dorado,0,140,5,2,0.0
+PANDA-7069876,Panda Inmobiliaria,Benedictinos,0,455,5,5,0.0
+PANDA-7163393,Panda Inmobiliaria,Centro,0,20,0,1,0.0
+PANDA-7172296,Panda Inmobiliaria,Altos Del Escobero,0,100,3,2,0.0
+PANDA-7184098,Panda Inmobiliaria,Loma Del Escobero,0,525,5,4,0.0
+PANDA-7193999,Panda Inmobiliaria,Centro,0,40,0,0,0.0
+PANDA-7194013,Panda Inmobiliaria,El Rodeo,0,54,0,0,0.0
+PANDA-7204404,Panda Inmobiliaria,Centro,0,125,0,1,0.0
+PANDA-7214234,Panda Inmobiliaria,Andalucia,0,160,3,3,0.0
+PANDA-7229088,Panda Inmobiliaria,El Dorado,0,62,3,2,0.0
+PANDA-7242263,Panda Inmobiliaria,Andalucia,0,50,0,1,0.0
+PANDA-7343031,Panda Inmobiliaria,Guayabal,0,80,3,2,0.0
+PANDA-7345657,Panda Inmobiliaria,Laureles,0,614,0,0,0.0
+PANDA-7397405,Panda Inmobiliaria,Caribe,0,320,0,2,0.0
+PANDA-7399855,Panda Inmobiliaria,La Paz,0,42,0,1,0.0
+PANDA-7445263,Panda Inmobiliaria,El Dorado,0,30,0,1,0.0
+PANDA-7449336,Panda Inmobiliaria,Loma El Atravesado,0,250,3,4,0.0
+PANDA-7557068,Panda Inmobiliaria,Loma Del Chocho,0,900,19,0,0.0
+PANDA-7656475,Panda Inmobiliaria,Centro,0,15,0,1,0.0
+PANDA-7737275,Panda Inmobiliaria,Centro,0,46,0,0,0.0
+PANDA-7985302,Panda Inmobiliaria,Centro,0,30,0,1,0.0
+PANDA-8016838,Panda Inmobiliaria,ZuÑiga,0,106,2,2,0.0
+PANDA-8029268,Panda Inmobiliaria,Guaimaro,0,774,0,4,0.0
+PANDA-8069151,Panda Inmobiliaria,Poblado,0,30,0,0,0.0
+PANDA-8094706,Panda Inmobiliaria,Poblado,0,350,4,5,0.0
+PANDA-8120622,Panda Inmobiliaria,Centro,0,30,0,1,0.0
+PANDA-8222405,Panda Inmobiliaria,Gualanday,0,175,3,3,0.0
+PANDA-8236726,Panda Inmobiliaria,La Tolva,0,400,0,4,0.0
+PANDA-8298914,Panda Inmobiliaria,Centro,800000000,100,0,2,8000000.0
+PANDA-8317389,Panda Inmobiliaria,El Carmelo,0,120,0,1,0.0
+PANDA-8333700,Panda Inmobiliaria,Las Casitas,0,62,3,2,0.0
+PANDA-8333703,Panda Inmobiliaria,Bucarest,0,30,0,1,0.0
+PANDA-8401669,Panda Inmobiliaria,Oasis,0,75,3,2,0.0
+PANDA-8410424,Panda Inmobiliaria,Centro,0,15,0,1,0.0
+PANDA-8426425,Panda Inmobiliaria,Andalucia,0,33,0,1,0.0
+PANDA-8430232,Panda Inmobiliaria,Centro,0,243,0,3,0.0
+PANDA-8446994,Panda Inmobiliaria,Trianon,0,0,3,2,
+PANDA-8464503,Panda Inmobiliaria,Milla De Oro,0,66,0,1,0.0
+PANDA-8469013,Panda Inmobiliaria,Fontibon,0,54,2,2,0.0
+PANDA-8474007,Panda Inmobiliaria,Guaimaro,0,20,0,1,0.0
+PANDA-8474553,Panda Inmobiliaria,Centro,0,12,0,1,0.0
+PANDA-8474597,Panda Inmobiliaria,Centro,0,30,0,1,0.0
+PANDA-8486518,Panda Inmobiliaria,Medellin,0,260,7,5,0.0
+PANDA-8508928,Panda Inmobiliaria,Fontibon,0,58,3,2,0.0
+PANDA-8536621,Panda Inmobiliaria,Los Colegios,0,54,2,1,0.0
+PANDA-8537778,Panda Inmobiliaria,Centro,0,24,0,0,0.0
+PANDA-8574669,Panda Inmobiliaria,El Dorado,0,75,3,2,0.0
+PANDA-8576697,Panda Inmobiliaria,Fontibon,0,57,2,2,0.0
+PANDA-8589328,Panda Inmobiliaria,La Magnolia,0,85,4,3,0.0
+PANDA-8590025,Panda Inmobiliaria,Poblado,0,56,0,1,0.0
+PANDA-8996035,Panda Inmobiliaria,Alto Bonito,0,54,2,2,0.0
+PANDA-9035949,Panda Inmobiliaria,Poblado,0,236,3,5,0.0
+PANDA-9051158,Panda Inmobiliaria,Centro,0,37,0,1,0.0
+PANDA-9073389,Panda Inmobiliaria,Trianon,0,120,4,4,0.0
+PANDA-9084027,Panda Inmobiliaria,Fontibon,0,57,2,2,0.0
+PANDA-9107452,Panda Inmobiliaria,La Mina,0,136,0,1,0.0
+PANDA-9120631,Panda Inmobiliaria,Provenza,0,340,8,4,0.0
+PANDA-9169285,Panda Inmobiliaria,Poblado,0,125,3,2,0.0
+PANDA-9171088,Panda Inmobiliaria,Centro,0,100,0,2,0.0
+PANDA-9206382,Panda Inmobiliaria,Fontibon,0,57,3,2,0.0
+PANDA-9216400,Panda Inmobiliaria,El Chocho,0,170,0,3,0.0
+PANDA-9218530,Panda Inmobiliaria,Centro,0,350,12,5,0.0
+PANDA-9218796,Panda Inmobiliaria,Loma De Los Parra,0,147,3,1,0.0
+PANDA-9221882,Panda Inmobiliaria,Villagrande,0,120,0,2,0.0
+PANDA-9222175,Panda Inmobiliaria,Antioquia Medellín,0,14,0,1,0.0
+PANDA-9227075,Panda Inmobiliaria,Santa Maria De Los Angeles,0,51,0,1,0.0
+PANDA-9227153,Panda Inmobiliaria,Santa Maria De Los Angeles,0,43,0,1,0.0
+PANDA-9247293,Panda Inmobiliaria,Antioquia Sabaneta,0,170,0,2,0.0
+PANDA-9269531,Panda Inmobiliaria,El Dorado,0,78,3,2,0.0
+PANDA-9275558,Panda Inmobiliaria,La Loma Del Indio,0,150,3,3,0.0
+PANDA-9288944,Panda Inmobiliaria,Las Casitas,0,75,3,2,0.0
+PANDA-9297145,Panda Inmobiliaria,Barrio Mesa,0,35,0,1,0.0
+PANDA-9302799,Panda Inmobiliaria,Poblado,0,84,0,0,0.0
+PANDA-9304903,Panda Inmobiliaria,San Marcos,0,180,5,3,0.0
+PANDA-9304972,Panda Inmobiliaria,Centro,0,15,0,1,0.0
+PANDA-9307553,Panda Inmobiliaria,Centro,0,190,0,2,0.0
+PANDA-9310365,Panda Inmobiliaria,Fontibon,0,57,3,2,0.0
+PANDA-9316571,Panda Inmobiliaria,Fontibon,0,60,2,2,0.0
+PANDA-9319656,Panda Inmobiliaria,Laureles,0,240,4,3,0.0
+PANDA-9329491,Panda Inmobiliaria,Fontibon,0,55,3,2,0.0
+PANDA-9332402,Panda Inmobiliaria,Barro Blanco,0,65,2,2,0.0
+PANDA-9339132,Panda Inmobiliaria,El Porvenir,0,66,2,2,0.0
+PANDA-9339173,Panda Inmobiliaria,Porvenir,0,91,3,3,0.0
+PANDA-9339243,Panda Inmobiliaria,Barro Blanco,0,68,3,2,0.0
+PANDA-9339723,Panda Inmobiliaria,El Dorado,0,166,5,2,0.0
+PANDA-9347076,Panda Inmobiliaria,Aguacatala,0,150,3,2,0.0
+PANDA-9348811,Panda Inmobiliaria,El Portal,0,20,0,1,0.0
+PANDA-9350622,Panda Inmobiliaria,El Porvenir,0,55,1,2,0.0
+PANDA-9350676,Panda Inmobiliaria,El Porvenir,0,65,2,2,0.0
+PANDA-9350726,Panda Inmobiliaria,El Porvenir,0,90,0,3,0.0
+PANDA-9350741,Panda Inmobiliaria,El Porvenir,0,90,3,3,0.0
+PANDA-9350765,Panda Inmobiliaria,El Porvenir,0,91,3,3,0.0
+PANDA-9350807,Panda Inmobiliaria,San Antonio,0,58,2,2,0.0
+PANDA-9354021,Panda Inmobiliaria,Envigado,0,380,4,3,0.0
+PANDA-9358071,Panda Inmobiliaria,Alcala,0,65,2,0,0.0
+PANDA-9371759,Panda Inmobiliaria,Centro,0,30,0,1,0.0
+PANDA-9375315,Panda Inmobiliaria,Centro,0,30,0,1,0.0
+PANDA-9378714,Panda Inmobiliaria,Barrio Mesa,0,24,0,1,0.0
+PANDA-9382141,Panda Inmobiliaria,Santa Maria De Los Angeles,0,217,8,4,0.0
+PANDA-9405735,Panda Inmobiliaria,La Cuenca,0,65,3,2,0.0
+PANDA-9408311,Panda Inmobiliaria,Centro,0,40,0,1,0.0
+PANDA-9411047,Panda Inmobiliaria,La Magnolia,0,12,0,1,0.0
+PANDA-9420323,Panda Inmobiliaria,Aliadas Del Sur,0,859,0,4,0.0
+PANDA-9428614,Panda Inmobiliaria,Centro,0,260,5,3,0.0
+PANDA-9431078,Panda Inmobiliaria,Los Colegios,0,65,3,2,0.0
+PANDA-9431207,Panda Inmobiliaria,El Porvenir,0,65,3,2,0.0
+PANDA-9434623,Panda Inmobiliaria,Porvenir,0,78,3,2,0.0
+PANDA-9434973,Panda Inmobiliaria,Barro Blanco,0,77,3,2,0.0
+PANDA-9449345,Panda Inmobiliaria,Porvenir,0,89,3,3,0.0
+PANDA-9451595,Panda Inmobiliaria,Barrio Mesa,0,40,0,1,0.0
+PANDA-9452885,Panda Inmobiliaria,Barro Blanco,0,75,3,2,0.0
+PANDA-9459122,Panda Inmobiliaria,Barro Blanco,0,65,2,2,0.0
+PANDA-9459141,Panda Inmobiliaria,Barro Blanco,0,80,3,2,0.0
+PANDA-9465635,Panda Inmobiliaria,Alcala,0,30,0,1,0.0
+PANDA-9467978,Panda Inmobiliaria,Porvenir,0,37,1,1,0.0
+PANDA-9478119,Panda Inmobiliaria,Poblado,0,97,0,2,0.0
+PANDA-9485276,Panda Inmobiliaria,Manila,0,265,0,1,0.0
+PANDA-9499858,Panda Inmobiliaria,Itagui,0,73,3,2,0.0
+PANDA-9512151,Panda Inmobiliaria,Poblado,0,420,0,3,0.0
+PANDA-9513579,Panda Inmobiliaria,Gualanday,0,210,3,3,0.0
+PANDA-9552944,Panda Inmobiliaria,Poblado,0,12,0,1,0.0
+PANDA-9590192,Panda Inmobiliaria,Centro,0,130,0,2,0.0
+PANDA-9611624,Panda Inmobiliaria,Fontibon,0,66,2,2,0.0
+PANDA-9615183,Panda Inmobiliaria,Guanteros,0,24,0,1,0.0
+PANDA-9639365,Panda Inmobiliaria,Loma Los Mesa,0,291,3,4,0.0
+PANDA-9653584,Panda Inmobiliaria,Capricentro,0,395,0,6,0.0
+PANDA-9653636,Panda Inmobiliaria,Capricentro,0,287,0,6,0.0
+PANDA-9653678,Panda Inmobiliaria,Capricentro,0,380,0,6,0.0
+PANDA-9653679,Panda Inmobiliaria,Capricentro,0,380,0,6,0.0
+PANDA-9657683,Panda Inmobiliaria,Las Margaritas,0,180,0,2,0.0
+PANDA-9657716,Panda Inmobiliaria,Capricentro,0,238,0,3,0.0
+PANDA-9657749,Panda Inmobiliaria,Capricentro,0,87,0,2,0.0
+PANDA-9661933,Panda Inmobiliaria,Porvenir,0,50,3,2,0.0
+PANDA-9669954,Panda Inmobiliaria,Laureles,0,220,5,3,0.0
+PANDA-9670073,Panda Inmobiliaria,Poblado,0,100,0,2,0.0
+PANDA-9673645,Panda Inmobiliaria,Poblado,0,88,4,2,0.0
+PANDA-9692018,Panda Inmobiliaria,Barro Blanco,0,60,3,2,0.0
+PANDA-9694342,Panda Inmobiliaria,Fisebad,0,108,2,2,0.0
+PANDA-9695545,Panda Inmobiliaria,El Porvenir,0,60,2,2,0.0
+PANDA-9695550,Panda Inmobiliaria,El Porvenir,0,60,2,2,0.0
+PANDA-9701517,Panda Inmobiliaria,Astorga,0,54,0,2,0.0
+PANDA-9705543,Panda Inmobiliaria,La Paz,0,107,3,2,0.0
+PANDA-9707867,Panda Inmobiliaria,Centro,0,160,0,2,0.0
+PANDA-9708708,Panda Inmobiliaria,Poblado,0,87,2,2,0.0
+PANDA-9721950,Panda Inmobiliaria,Milla De Oro,0,260,5,5,0.0
+PANDA-9737382,Panda Inmobiliaria,Los Naranjos,0,180,3,3,0.0
+PANDA-9737780,Panda Inmobiliaria,San Marcos,0,178,5,3,0.0
+PANDA-9744108,Panda Inmobiliaria,Bucarest,0,100,0,2,0.0
+PANDA-9745463,Panda Inmobiliaria,San Antonio,0,65,2,2,0.0
+PANDA-9745483,Panda Inmobiliaria,San Antonio,0,65,2,2,0.0
+PANDA-9745507,Panda Inmobiliaria,San Antonio,0,65,1,2,0.0
+PANDA-9745549,Panda Inmobiliaria,San Antonio,0,65,3,2,0.0
+PANDA-9746480,Panda Inmobiliaria,San Antonio,0,60,2,2,0.0
+PANDA-9746490,Panda Inmobiliaria,San Antonio,0,65,3,2,0.0
+PANDA-9746507,Panda Inmobiliaria,San Antonio,0,60,2,2,0.0
+PANDA-9746532,Panda Inmobiliaria,San Antonio,0,60,3,2,0.0
+PANDA-9746549,Panda Inmobiliaria,San Antonio,0,60,3,2,0.0
+PANDA-9748531,Panda Inmobiliaria,Barro Blanco,0,50,1,1,0.0
+PANDA-9748558,Panda Inmobiliaria,Barro Blanco,0,60,2,1,0.0
+PANDA-9748589,Panda Inmobiliaria,Barro Blanco,0,65,2,0,0.0
+PANDA-9748672,Panda Inmobiliaria,El Retiro,0,60,2,2,0.0
+PANDA-9748725,Panda Inmobiliaria,Porvenir,0,50,2,2,0.0
+PANDA-9748772,Panda Inmobiliaria,El Porvenir,0,47,1,1,0.0
+PANDA-9748880,Panda Inmobiliaria,San Antonio,0,65,3,2,0.0
+PANDA-9749142,Panda Inmobiliaria,San Antonio,0,60,1,2,0.0
+PANDA-9749186,Panda Inmobiliaria,San Antonio,0,60,2,1,0.0
+PANDA-9749395,Panda Inmobiliaria,Porvenir,0,90,3,2,0.0
+PANDA-9749543,Panda Inmobiliaria,Cimarronas,0,54,2,2,0.0
+PANDA-9749607,Panda Inmobiliaria,Porvenir,0,90,3,2,0.0
+PANDA-9750902,Panda Inmobiliaria,Porvenir,0,62,2,2,0.0
+PANDA-9750930,Panda Inmobiliaria,Porvenir,0,62,2,2,0.0
+PANDA-9753158,Panda Inmobiliaria,Antioquia Itagui,0,180,0,2,0.0
+PANDA-9766853,Panda Inmobiliaria,Itagui,0,1280,0,6,0.0
+PANDA-9768581,Panda Inmobiliaria,Andalucia,0,110,3,2,0.0
+PANDA-9773726,Panda Inmobiliaria,Las Casitas,0,120,0,1,0.0
+PANDA-9776681,Panda Inmobiliaria,Las Casitas,0,72,0,1,0.0
+PANDA-9778204,Panda Inmobiliaria,San Antonio,0,69,3,2,0.0
+PANDA-9778686,Panda Inmobiliaria,Barro Blanco,0,60,2,2,0.0
+PANDA-9778774,Panda Inmobiliaria,Porvenir,0,50,2,2,0.0
+PANDA-9779594,Panda Inmobiliaria,Porvenir,0,125,3,3,0.0
+PANDA-9779772,Panda Inmobiliaria,La Fe,0,72,1,2,0.0
+PANDA-9779919,Panda Inmobiliaria,Porvenir,0,60,2,2,0.0
+PANDA-9780198,Panda Inmobiliaria,Los Colegios,0,70,3,2,0.0
+PANDA-9786300,Panda Inmobiliaria,Barro Blanco,0,80,3,3,0.0
+PANDA-9786444,Panda Inmobiliaria,Porvenir,0,50,3,2,0.0
+PANDA-9786464,Panda Inmobiliaria,San Antonio De Pereira,0,52,1,1,0.0
+PANDA-9786533,Panda Inmobiliaria,San Antonio De Pereira,0,65,2,2,0.0
+PANDA-9786607,Panda Inmobiliaria,Porvenir,0,78,2,3,0.0
+PANDA-9786705,Panda Inmobiliaria,Porvenir,0,88,3,3,0.0
+PANDA-9793206,Panda Inmobiliaria,Vereda Portento,0,125,2,2,0.0
+PANDA-9793255,Panda Inmobiliaria,Las Casitas,0,72,0,1,0.0
+PANDA-9795986,Panda Inmobiliaria,Sector Pantanillo,0,120,3,3,0.0
+PANDA-9798228,Panda Inmobiliaria,Porvenir,0,60,2,2,0.0
+PANDA-9802639,Panda Inmobiliaria,Manila,0,100,0,2,0.0
+PANDA-9803227,Panda Inmobiliaria,El Retiro,0,600,5,5,0.0
+PANDA-9803356,Panda Inmobiliaria,El Retiro,0,74,2,2,0.0
+PANDA-9814694,Panda Inmobiliaria,Barro Blanco,0,77,3,2,0.0
+PANDA-9814858,Panda Inmobiliaria,El Retiro,0,70,2,2,0.0
+PANDA-9818034,Panda Inmobiliaria,Transversal Intermedia,0,260,4,4,0.0
+PANDA-9822527,Panda Inmobiliaria,Poblado,0,600,10,9,0.0
+PANDA-9824964,Panda Inmobiliaria,Centro,0,65,0,1,0.0
+PANDA-9826824,Panda Inmobiliaria,La America,0,320,0,1,0.0
+PANDA-9826914,Panda Inmobiliaria,La America,0,280,0,5,0.0
+PANDA-9833564,Panda Inmobiliaria,Barro Blanco,0,60,2,2,0.0
+PANDA-9833577,Panda Inmobiliaria,La Mina,0,55,0,2,0.0
+PANDA-9834787,Panda Inmobiliaria,San Antonio De Pereira,0,70,2,2,0.0
+PANDA-9835747,Panda Inmobiliaria,Fontibon,0,58,3,2,0.0
+PANDA-9837583,Panda Inmobiliaria,Centro,0,20,0,1,0.0
+PANDA-9846624,Panda Inmobiliaria,Centro,0,117,3,2,0.0
+PANDA-9850971,Panda Inmobiliaria,Las Torres,0,74,2,2,0.0
+PANDA-9853378,Panda Inmobiliaria,El Retiro,0,225,3,0,0.0
+PANDA-9854035,Panda Inmobiliaria,El Retiro,0,52,1,2,0.0
+PANDA-9855635,Panda Inmobiliaria,Poblado,0,120,4,3,0.0
+PANDA-9859346,Panda Inmobiliaria,Centro,0,100,0,1,0.0
+PANDA-9861021,Panda Inmobiliaria,El Tesoro,0,121,4,4,0.0
+PANDA-9862876,Panda Inmobiliaria,Belen,0,180,0,2,0.0
+PANDA-9863340,Panda Inmobiliaria,Barro Blanco,0,66,2,2,0.0
+PANDA-9863391,Panda Inmobiliaria,Barro Blanco,0,85,2,2,0.0
+PANDA-9863421,Panda Inmobiliaria,Barro Blanco,0,69,2,2,0.0
+PANDA-9863454,Panda Inmobiliaria,Gualandayes,0,45,0,2,0.0
+PANDA-9863472,Panda Inmobiliaria,Barro Blanco,0,69,2,2,0.0
+PANDA-9865207,Panda Inmobiliaria,Andalucia,0,170,4,2,0.0
+PANDA-9869018,Panda Inmobiliaria,Andalucia,0,100,0,1,0.0
+PANDA-9869548,Panda Inmobiliaria,Obrero,0,124,4,2,0.0
+PANDA-9886990,Panda Inmobiliaria,Poblado,0,105,0,2,0.0
+PANDA-9887396,Panda Inmobiliaria,Barrio Incomar,0,60,0,1,0.0
+PANDA-9887909,Panda Inmobiliaria,Milla De Oro,0,226,4,5,0.0
+PANDA-9887956,Panda Inmobiliaria,La Magnolia,0,92,3,2,0.0
+PANDA-9893423,Panda Inmobiliaria,Barrio Mesa,0,160,5,2,0.0
+PANDA-9893527,Panda Inmobiliaria,Barro Blanco,0,66,2,2,0.0
+PANDA-9893812,Panda Inmobiliaria,Barro Blanco,0,70,2,2,0.0
+PANDA-9897634,Panda Inmobiliaria,Barro Blanco,0,73,3,2,0.0
+PANDA-9913020,Panda Inmobiliaria,Santa Maria De Los Angeles,0,132,4,3,0.0
+PANDA-9921051,Panda Inmobiliaria,ZuÑiga,0,108,2,3,0.0
+PANDA-9921811,Panda Inmobiliaria,Las Casitas,0,90,3,2,0.0
+PANDA-9925110,Panda Inmobiliaria,Metropolitano,0,120,4,2,0.0
+PANDA-9931693,Panda Inmobiliaria,El Portal,0,57,0,1,0.0
+PANDA-9935306,Panda Inmobiliaria,Pontevedra,0,114,2,4,0.0
+PANDA-9938140,Panda Inmobiliaria,Porvenir,0,50,2,0,0.0
+PANDA-9938148,Panda Inmobiliaria,El Porvenir,0,50,2,2,0.0
+PANDA-9938166,Panda Inmobiliaria,Porvenir,0,50,2,2,0.0
+PANDA-9938195,Panda Inmobiliaria,El Porvenir,0,50,2,2,0.0
+PANDA-9939002,Panda Inmobiliaria,Provenza,0,20,0,1,0.0
+PANDA-9940460,Panda Inmobiliaria,Centro,0,134,4,3,0.0
+PANDA-9941573,Panda Inmobiliaria,La Magnolia,0,120,3,2,0.0
+PANDA-9944892,Panda Inmobiliaria,Suramerica,0,240,4,3,0.0
+PANDA-9946713,Panda Inmobiliaria,Fontibon,0,60,2,1,0.0
+PANDA-9946894,Panda Inmobiliaria,Mesa,0,40,0,1,0.0
+PANDA-9951052,Panda Inmobiliaria,Santa Maria De Los Angeles,0,137,4,3,0.0
+PANDA-9952392,Panda Inmobiliaria,El Porvenir,1850000,49,2,2,37755.102040816324
+PANDA-9954363,Panda Inmobiliaria,Guayabal,0,218,0,2,0.0
+PANDA-9954381,Panda Inmobiliaria,Alcala,0,120,4,3,0.0
+PANDA-9954552,Panda Inmobiliaria,Cristo Rey,0,200,4,2,0.0
+PANDA-9956692,Panda Inmobiliaria,La Magnolia,0,120,3,2,0.0
+PANDA-9957183,Panda Inmobiliaria,Barro Blanco,0,77,3,2,0.0
+PANDA-9957290,Panda Inmobiliaria,Sajonia,0,300,4,3,0.0
+PANDA-9961560,Panda Inmobiliaria,Tranvia,0,54,2,2,0.0
+PANDA-9961567,Panda Inmobiliaria,Tranvia,0,54,2,2,0.0
+PANDA-9961648,Panda Inmobiliaria,Cimarronas,0,54,2,2,0.0
+PANDA-9963247,Panda Inmobiliaria,El Esmeraldal,0,260,3,2,0.0
+PANDA-9964751,Panda Inmobiliaria,Loma Del Escobero,0,70,2,3,0.0
+PANDA-9964928,Panda Inmobiliaria,Los Balsos,0,120,3,3,0.0
+PANDA-9970317,Panda Inmobiliaria,Barrio Mesa,0,220,5,4,0.0
+PANDA-9976732,Panda Inmobiliaria,Los Balsos,0,130,3,3,0.0
+PANDA-9977981,Panda Inmobiliaria,Loma Del Esmeraldal,0,70,2,2,0.0
+PANDA-9980612,Panda Inmobiliaria,Las Brujas,0,160,3,2,0.0
+PANDA-9980845,Panda Inmobiliaria,Loma Del Esmeraldal,0,70,2,2,0.0
+PANDA-9980936,Panda Inmobiliaria,Loma Del Esmeraldal,0,70,2,2,0.0
+PANDA-9993704,Panda Inmobiliaria,Bucarest,0,25,0,1,0.0
+PANDA-9993742,Panda Inmobiliaria,Bucarest,0,50,0,2,0.0
+PANDA-9994516,Panda Inmobiliaria,Cimarronas,0,55,3,2,0.0
+PANDA-9996461,Panda Inmobiliaria,Manila,0,63,0,2,0.0
+PANDA-10000675,Panda Inmobiliaria,Sajonia,0,2000,3,3,0.0
+PANDA-10002418,Panda Inmobiliaria,Barrio Mesa,0,200,3,3,0.0
+PANDA-10004638,Panda Inmobiliaria,Loma Del Esmeraldal,0,127,3,4,0.0
+PANDA-10006540,Panda Inmobiliaria,Loma Del Escobero,0,123,3,4,0.0
+PANDA-10006780,Panda Inmobiliaria,Señorial,0,60,1,2,0.0
+PANDA-10008388,Panda Inmobiliaria,Camino Verde,0,82,3,2,0.0
+PANDA-10010146,Panda Inmobiliaria,San Marcos,0,100,3,2,0.0
+PANDA-10010242,Panda Inmobiliaria,Centro,0,160,4,2,0.0
+PANDA-10010557,Panda Inmobiliaria,Ferreria,0,62,2,2,0.0
+PANDA-10011133,Panda Inmobiliaria,Camino Verde,0,62,3,2,0.0
+PANDA-10012609,Panda Inmobiliaria,Centro,0,200,3,2,0.0
+PANDA-10012693,Panda Inmobiliaria,Centro,0,35,0,1,0.0
+PANDA-10012930,Panda Inmobiliaria,Primavera,0,75,3,1,0.0
+PANDA-10013864,Panda Inmobiliaria,Barro Blanco,0,59,2,2,0.0
+PANDA-10015897,Panda Inmobiliaria,Camino Verde,0,88,3,2,0.0
+PANDA-10015946,Panda Inmobiliaria,Poblado,0,230,4,3,0.0
+PANDA-10017105,Panda Inmobiliaria,Sabaneta,0,90,0,2,0.0
+PANDA-10017553,Panda Inmobiliaria,Laureles,0,90,3,2,0.0
+PANDA-10017813,Panda Inmobiliaria,El Salado,0,65,2,0,0.0
+PANDA-10020090,Panda Inmobiliaria,Porvenir,0,50,3,2,0.0
+PANDA-10020104,Panda Inmobiliaria,Porvenir,0,48,3,2,0.0
+PANDA-10020114,Panda Inmobiliaria,Cimarronas,0,50,3,2,0.0
+PANDA-10020121,Panda Inmobiliaria,Fontibon,0,60,2,2,0.0
+PANDA-10020125,Panda Inmobiliaria,Cimarronas,0,54,2,2,0.0
+PANDA-10020130,Panda Inmobiliaria,Fontibon,0,50,2,2,0.0
+PANDA-10020302,Panda Inmobiliaria,La Cuenca,0,85,3,3,0.0
+PANDA-10024108,Panda Inmobiliaria,Poblado,0,123,3,3,0.0
+PANDA-10028855,Panda Inmobiliaria,San Marcos,0,320,5,4,0.0
+PANDA-10040565,Panda Inmobiliaria,María Auxiliadora,0,55,3,2,0.0
+PANDA-10042735,Panda Inmobiliaria,Centro,0,169,3,2,0.0
+PANDA-10042819,Panda Inmobiliaria,Centro,0,119,4,2,0.0
+PANDA-10042865,Panda Inmobiliaria,Centro,0,100,3,2,0.0
+PANDA-10042944,Panda Inmobiliaria,Centro,0,220,10,1,0.0
+PANDA-10045649,Panda Inmobiliaria,Alto Bonito,0,52,2,2,0.0
+PANDA-10045654,Panda Inmobiliaria,Alto Bonito,0,52,3,2,0.0
+PANDA-10054279,Panda Inmobiliaria,Porvenir,0,40,1,0,0.0
+PANDA-10054398,Panda Inmobiliaria,Barrio Mesa,0,150,0,0,0.0
+PANDA-10054485,Panda Inmobiliaria,Barrio Mesa,0,110,3,3,0.0
+PANDA-10054496,Panda Inmobiliaria,Barrio Mesa,0,115,3,3,0.0
+PANDA-10055855,Panda Inmobiliaria,Laureles,0,110,2,2,0.0
+PANDA-10061705,Panda Inmobiliaria,La Magnolia,0,165,4,3,0.0
+PANDA-10062125,Panda Inmobiliaria,Trianon,0,68,3,1,0.0
+PANDA-10071402,Panda Inmobiliaria,Las Orquideas,0,105,4,4,0.0
+PANDA-10073537,Panda Inmobiliaria,Suramerica,0,108,3,0,0.0
+PANDA-10075738,Panda Inmobiliaria,Cumbres,0,124,2,2,0.0
+PANDA-10081848,Panda Inmobiliaria,Ciudadela Coltejer,0,73,3,2,0.0
+PANDA-10087785,Panda Inmobiliaria,La Doctora,0,70,3,2,0.0
+PANDA-10087809,Panda Inmobiliaria,La Doctora,0,70,3,2,0.0
+PANDA-10092019,Panda Inmobiliaria,ZuÑiga,0,124,3,3,0.0
+PANDA-10096680,Panda Inmobiliaria,Poblado,0,130,3,3,0.0
+PANDA-10111188,Panda Inmobiliaria,Cimarronas,0,60,3,2,0.0
+PANDA-10111208,Panda Inmobiliaria,El Esmeraldal,0,69,2,2,0.0
+PANDA-10114701,Panda Inmobiliaria,Poblado,0,101,2,3,0.0
+PANDA-10114779,Panda Inmobiliaria,San Rafael,0,57,3,2,0.0
+PANDA-10115242,Panda Inmobiliaria,Las Palmas,0,33,0,1,0.0
+PANDA-10115264,Panda Inmobiliaria,Santa Maria De Los Angeles,0,135,3,3,0.0
+PANDA-10116310,Panda Inmobiliaria,La Magnolia,0,220,0,2,0.0
+PANDA-10117643,Panda Inmobiliaria,Camino Verde,0,62,3,2,0.0
+PANDA-10118256,Panda Inmobiliaria,Los Naranjos,0,130,3,3,0.0
+PANDA-10123709,Panda Inmobiliaria,El Dorado,0,130,3,3,0.0
+PANDA-10126194,Panda Inmobiliaria,Centro,0,60,0,1,0.0
+PANDA-10128656,Panda Inmobiliaria,Cumbres,0,75,3,2,0.0
+PANDA-10128740,Panda Inmobiliaria,Poblado,0,70,2,2,0.0
+PANDA-10130032,Panda Inmobiliaria,La Paz,0,80,2,2,0.0
+PANDA-10131518,Panda Inmobiliaria,Las Casitas,0,62,3,2,0.0
+PANDA-10133050,Panda Inmobiliaria,Otra Parte,0,90,3,2,0.0
+PANDA-10135059,Panda Inmobiliaria,Los Naranjos,0,120,4,2,0.0
+PANDA-10137983,Panda Inmobiliaria,Cumbres,0,83,3,2,0.0
+PANDA-10140314,Panda Inmobiliaria,Centro,0,30,0,1,0.0
+PANDA-10141018,Panda Inmobiliaria,Pontevedra,0,75,2,2,0.0
+PANDA-10142975,Panda Inmobiliaria,El Portal,0,120,3,2,0.0
+PANDA-10163957,Panda Inmobiliaria,San Marcos,0,17,0,1,0.0
+PANDA-10167574,Panda Inmobiliaria,La Paz,0,116,3,2,0.0
+PANDA-10167908,Panda Inmobiliaria,Alcala,0,85,3,1,0.0
+PANDA-10169230,Panda Inmobiliaria,Poblado,0,211,3,5,0.0
+PANDA-10170129,Panda Inmobiliaria,Poblado,0,93,3,3,0.0
+PANDA-10195546,Panda Inmobiliaria,Las Cometas,0,70,3,2,0.0
+PANDA-10196279,Panda Inmobiliaria,La Mina,0,55,3,2,0.0
+PANDA-10196516,Panda Inmobiliaria,Loma Del Chocho,0,84,2,2,0.0
+PANDA-10204311,Panda Inmobiliaria,Barrio Mesa,0,75,3,2,0.0
+PANDA-10204362,Panda Inmobiliaria,El Chingui,0,64,3,2,0.0
+PANDA-10207033,Panda Inmobiliaria,Ferreria,0,62,3,2,0.0
+PANDA-10207042,Panda Inmobiliaria,Ferreria,0,62,2,2,0.0
+PANDA-10207119,Panda Inmobiliaria,Guaimaro,0,38,0,1,0.0
+PANDA-10207136,Panda Inmobiliaria,Guaimaro,0,43,0,1,0.0
+PANDA-10207220,Panda Inmobiliaria,Ferreria,0,62,3,2,0.0
+PANDA-10207679,Panda Inmobiliaria,Poblado,0,72,2,2,0.0
+PANDA-10210765,Panda Inmobiliaria,Fontibon,0,58,3,2,0.0
+PANDA-10211347,Panda Inmobiliaria,Fontibon,0,60,2,1,0.0
+PANDA-10212174,Panda Inmobiliaria,Barrio Mesa,0,130,3,2,0.0
+PANDA-10213632,Panda Inmobiliaria,Cimarronas,0,50,2,2,0.0
+PANDA-10213687,Panda Inmobiliaria,Los Balsos,0,87,2,2,0.0
+PANDA-10215782,Panda Inmobiliaria,San Fernando,0,111,3,1,0.0
+PANDA-10215998,Panda Inmobiliaria,Benedictinos,0,137,3,3,0.0
+PANDA-10217291,Panda Inmobiliaria,Barro Blanco,0,68,3,2,0.0
+PANDA-10217338,Panda Inmobiliaria,Cimarronas,0,56,2,2,0.0
+PANDA-10217388,Panda Inmobiliaria,Barro Blanco,0,66,3,2,0.0
+PANDA-10219628,Panda Inmobiliaria,La Mina,0,75,2,2,0.0
+PANDA-10219632,Panda Inmobiliaria,Transversal Intermedia,0,90,1,2,0.0
+PANDA-10219722,Panda Inmobiliaria,La Doctora,0,217,4,3,0.0
+PANDA-10220555,Panda Inmobiliaria,Otra Parte,0,96,3,2,0.0
+PANDA-10220948,Panda Inmobiliaria,San Jose,0,70,2,2,0.0
+PANDA-10220961,Panda Inmobiliaria,Camino Verde,0,62,3,2,0.0
+PANDA-10221167,Panda Inmobiliaria,Loma De Las Brujas,0,62,1,2,0.0
+PANDA-10221192,Panda Inmobiliaria,Centro,0,40,1,1,0.0
+PANDA-10221463,Panda Inmobiliaria,Cimarronas,0,50,2,2,0.0
+PANDA-10221592,Panda Inmobiliaria,El Dorado,0,90,3,2,0.0
+PANDA-10224786,Panda Inmobiliaria,Poblado,0,129,2,3,0.0
+PANDA-10226798,Panda Inmobiliaria,Las Palmas,0,96,2,2,0.0
+PANDA-10227069,Panda Inmobiliaria,Ciudad Del Rio,0,60,2,2,0.0
+PANDA-10227599,Panda Inmobiliaria,Poblado,0,100,1,1,0.0
+PANDA-10227889,Panda Inmobiliaria,Las Palmas,0,180,2,3,0.0
+PANDA-10229395,Panda Inmobiliaria,Poblado,0,130,0,3,0.0
+PANDA-10229638,Panda Inmobiliaria,Castropol,0,76,3,2,0.0
+PANDA-10231430,Panda Inmobiliaria,Cimarronas,0,53,2,2,0.0
+PANDA-10231487,Panda Inmobiliaria,Alto Bonito,0,51,3,1,0.0
+PANDA-10231671,Panda Inmobiliaria,La Frontera,0,75,2,2,0.0
+PANDA-10231675,Panda Inmobiliaria,Itagui,0,67,3,2,0.0
+PANDA-10234352,Panda Inmobiliaria,El Chocho,0,350,3,3,0.0
+PANDA-10234539,Panda Inmobiliaria,Cumbres,0,64,2,2,0.0
+PANDA-10235568,Panda Inmobiliaria,La Magnolia,0,20,0,1,0.0
+PANDA-10235811,Panda Inmobiliaria,Aves María,0,70,2,2,0.0
+PANDA-10236666,Panda Inmobiliaria,La Estrella,0,62,3,2,0.0
+PANDA-10236743,Panda Inmobiliaria,La Mina,0,200,3,3,0.0
+PANDA-10236752,Panda Inmobiliaria,El Dorado,0,146,3,4,0.0
+PANDA-10239297,Panda Inmobiliaria,Loma De Las Brujas,0,145,4,3,0.0
+PANDA-10239642,Panda Inmobiliaria,Restrepo Naranjo,0,87,3,2,0.0
+PANDA-10244135,Panda Inmobiliaria,Trianon,0,1300,5,3,0.0
+PANDA-10244241,Panda Inmobiliaria,Trianon,0,19,0,1,0.0
+PANDA-10245795,Panda Inmobiliaria,Poblado,0,76,1,2,0.0
+PANDA-10247916,Panda Inmobiliaria,Montego,0,150,4,4,0.0
+PANDA-10247989,Panda Inmobiliaria,Las Lomitas,0,102,2,2,0.0
+PANDA-10253426,Panda Inmobiliaria,Barrio Mesa,0,100,4,1,0.0
+PANDA-10259559,Panda Inmobiliaria,El Dorado,0,60,3,2,0.0
+PANDA-10263703,Panda Inmobiliaria,Guayabal,930000000,170,0,1,5470588.235294118
+PANDA-10266457,Panda Inmobiliaria,Poblado,0,60,0,1,0.0
+PANDA-10266672,Panda Inmobiliaria,San Mateo,0,120,4,2,0.0
+PANDA-10269793,Panda Inmobiliaria,Las Vegas,0,67,2,2,0.0
+PANDA-10269865,Panda Inmobiliaria,Las Vegas,0,85,3,2,0.0
+PANDA-10270120,Panda Inmobiliaria,Las Vegas,0,80,3,2,0.0
+PANDA-10274802,Panda Inmobiliaria,Trianon,0,97,4,2,0.0
+PANDA-10275056,Panda Inmobiliaria,Otra Parte,0,90,3,2,0.0
+PANDA-10275186,Panda Inmobiliaria,Vía San Antonio - La Ceja,0,150,3,3,0.0
+PANDA-10279304,Panda Inmobiliaria,El Portal,0,68,2,2,0.0
+PANDA-10279595,Panda Inmobiliaria,El Chocho,0,60,2,1,0.0
+PANDA-10279687,Panda Inmobiliaria,Alcala,0,12,0,1,0.0
+PANDA-10283576,Panda Inmobiliaria,Los Naranjos,0,180,4,4,0.0
+PANDA-10283696,Panda Inmobiliaria,Centro,0,50,0,1,0.0
+PANDA-10285355,Panda Inmobiliaria,La Loma Del Indio,0,65,2,2,0.0
+PANDA-10294047,Panda Inmobiliaria,Camino Verde,0,86,3,2,0.0
+PANDA-10294106,Panda Inmobiliaria,El Dorado,0,130,4,2,0.0
+PANDA-10296918,Panda Inmobiliaria,La Magnolia,0,240,5,2,0.0
+PANDA-10297026,Panda Inmobiliaria,Andalucia,0,130,5,2,0.0
+PANDA-10302234,Panda Inmobiliaria,La Milagrosa,0,120,4,2,0.0
+PANDA-10303177,Panda Inmobiliaria,San Marcos,0,160,3,2,0.0
+PANDA-10305284,Panda Inmobiliaria,Primavera,0,50,1,1,0.0
+PANDA-10306193,Panda Inmobiliaria,Poblado,0,206,0,1,0.0
+PANDA-10310150,Panda Inmobiliaria,Trianon,0,110,0,1,0.0
+PANDA-10310419,Panda Inmobiliaria,Porvenir,0,54,2,2,0.0
+PANDA-10310805,Panda Inmobiliaria,El Salado,2200000000,420,5,5,5238095.238095238

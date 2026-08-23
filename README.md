@@ -49,6 +49,14 @@ El flujo de datos está estructurado en tres capas lógicas para garantizar resi
 *   **Silver (Datos Limpios):** Estandarización relacional y sanitización de seguridad.
 *   **Gold (Analítica):** Modelos dimensionales y agregaciones (Pendiente de implementación).
 
+##Linaje de Datos (Data Lineage):
+
+Fuentes (API/SSR) ➔ Bronze Layer (JSON/HTML crudo).
+
+Bronze Layer ➔ Transformación Pandas ➔ Silver Layer (Parquet particionado, PII removido).
+
+Silver Layer ➔ DuckDB (SQL) ➔ Gold Layer (Marts analíticos agrupados por barrio).
+
 ## Structure
 
 - `src/utils`: shared helpers
