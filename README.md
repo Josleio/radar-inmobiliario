@@ -68,17 +68,17 @@ Este proyecto se encuentra en desarrollo activo e iteración continua:
 
 Para ejecutar este pipeline localmente sin conflictos de dependencias (especialmente con los motores de compresión de datos), sigue este orden estricto:
 
-### 1. Preparar el Entorno
-Asegúrate de estar en la raíz del proyecto (`realestate_analytics/`) y crea un entorno virtual aislado para no contaminar las librerías globales de tu sistema:
-
-**En Windows:**
-```bash
-
-python -m venv .venv
-.venv\Scripts\activate
+### 1. Preparar el Entorno - Instalar uv
+Desde python:
+pip install uv
+Tambien puedes ir a powershell en Windows e instalar uv en tu computador:
 
 ```
-1. Clonar el repositorio.
-2. Instalar dependencias: `pip install -r requirements.txt`
-3. Ejecutar el orquestador principal: `python main.py`
-   
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+Asegúrate de que este bien instalando probando el comando 'uv' en tu ide.
+Clona el repositorio, y acciona
+
+uv pip sync requirements.txt
+
+se descargaran los requisitos y podras usar el entorno virtual en tu pc, ahora solo acciones main.py!
