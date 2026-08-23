@@ -11,9 +11,9 @@ def _guardar_bronze(datos, fuente_nombre, extension="json"):
     """
     fecha_hoy = datetime.now().strftime("%Y-%m-%d")
     timestamp = datetime.now().strftime("%H%M")
-    carpeta_hora = f"{timestamp[0:2]}H{timestamp[2:4]}M"
+    carpeta_hora = f"{timestamp[0:2]}H"
 
-    directorio_hora = os.path.join("data", "bronze", fecha_hoy, "APIs", carpeta_hora)
+    directorio_hora = os.path.join("data", "bronze", fecha_hoy, carpeta_hora, "APIs")
     os.makedirs(directorio_hora, exist_ok=True)
 
     nombre_archivo = f"{fuente_nombre}.{extension}"
