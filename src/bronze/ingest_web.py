@@ -5,11 +5,12 @@ from src.utils.scraper_client import ScraperClient
 
 def _guardar_bronze_html(html_content, fuente_nombre):
     """
-    Guarda el HTML crudo en la carpeta data/bronze/YYYY-MM-DD/
+    Guarda el HTML crudo en data/bronze/YYYY-MM-DD/SSRs/HHHMM/.
     """
     fecha_hoy = datetime.now().strftime("%Y-%m-%d")
+    timestamp = datetime.now().strftime("%H%M")
     
-    directorio_bronze = os.path.join("data", "bronze", fecha_hoy)
+    directorio_bronze = os.path.join("data", "bronze", fecha_hoy, "SSRs", timestamp)
     os.makedirs(directorio_bronze, exist_ok=True)
     
     # Eliminamos el timestamp para sobrescribir en el mismo día

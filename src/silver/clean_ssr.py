@@ -9,18 +9,24 @@ COLUMNAS_PERMITIDAS = [
     'area_m2', 'habitaciones', 'banos', 'precio_x_m2'
 ]
 
-def _guardar_silver_parquet(df, fuente_nombre):
-    """Guarda el DataFrame limpio en la capa Silver en formato Parquet."""
-    if df.empty: return None
+def _guardar_silver_csv(df, fuente_nombre):
+    """Guarda el DataFrame limpio en la capa Silver en formato CSV."""
+    df_exportable = df[df['precio_cop'].fillna(0) > 0].copy()
+    if df_exportable.empty: return df
         
     fecha_hoy = datetime.now().strftime("%Y-%m-%d")
-    timestamp = datetime.now().strftime("%H%M%S")
-    directorio_silver = os.path.join("data", "silver", fecha_hoy)
+    timestamp = datetime.now().strftime("%H%M")
+    carpeta_hora = f"{timestamp[0:2]}H{timestamp[2:4]}M"
+    directorio_silver = os.path.join("data", "silver", fecha_hoy, carpeta_hora)
     os.makedirs(directorio_silver, exist_ok=True)
-    
-    ruta_parquet = os.path.join(directorio_silver, f"{fuente_nombre}_{timestamp}.parquet")
-    df.to_parquet(ruta_parquet, index=False)
-    print(f"[+] SILVER: Datos limpios guardados en Parquet -> {ruta_parquet}")
+
+    seccion = fuente_nombre.replace("_limpio", "")
+    directorio_seccion = os.path.join(directorio_silver, f"{seccion}_silver")
+    os.makedirs(directorio_seccion, exist_ok=True)
+
+    ruta_csv = os.path.join(directorio_seccion, f"{fuente_nombre}_{timestamp}.csv")
+    df_exportable.to_csv(ruta_csv, index=False)
+    print(f"[+] SILVER: Datos limpios guardados en CSV -> {ruta_csv}")
     return df
 
 def limpiar_santafe_ssr(ruta_archivo):
@@ -80,4 +86,4 @@ def limpiar_santafe_ssr(ruta_archivo):
             inmuebles_limpios.append(datos_limpios)
             
     df = pd.DataFrame(inmuebles_limpios, columns=COLUMNAS_PERMITIDAS)
-    return _guardar_silver_parquet(df, "santafe_limpio")
+    return _guardar_silver_csv(df, "santafe_limpio")

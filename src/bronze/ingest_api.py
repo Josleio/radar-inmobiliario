@@ -5,15 +5,17 @@ from src.utils.scraper_client import ScraperClient
 
 def _guardar_bronze(datos, fuente_nombre, extension="json"):
     """
-    Guarda los datos crudos en la carpeta data/bronze/YYYY-MM-DD/
+    Guarda los datos crudos en data/bronze/YYYY-MM-DD/APIs/HHHMM/.
     """
     fecha_hoy = datetime.now().strftime("%Y-%m-%d")
-    
-    directorio_bronze = os.path.join("data", "bronze", fecha_hoy)
-    os.makedirs(directorio_bronze, exist_ok=True)
-    
+    timestamp = datetime.now().strftime("%H%M")
+    carpeta_hora = f"{timestamp[0:2]}H{timestamp[2:4]}M"
+
+    directorio_hora = os.path.join("data", "bronze", fecha_hoy, "APIs", carpeta_hora)
+    os.makedirs(directorio_hora, exist_ok=True)
+
     nombre_archivo = f"{fuente_nombre}.{extension}"
-    ruta_completa = os.path.join(directorio_bronze, nombre_archivo)
+    ruta_completa = os.path.join(directorio_hora, nombre_archivo)
     
     with open(ruta_completa, 'w', encoding='utf-8') as archivo:
         if extension == "json":
@@ -40,26 +42,54 @@ def extraer_panda(client: ScraperClient):
         return ruta
     return None
 
+
 def extraer_anutibara(client: ScraperClient):
-    """Extrae datos de la API de Anutibara (Página 1)."""
+    """Extrae todas las promociones de Anutibara recorriendo sus páginas."""
     url = 'https://api.arrendamientosnutibara.com/promotion/search/neighbourhood'
     headers = {
-        'origin': 'https://anutibara.com',
-        'referer': 'https://anutibara.com/',
+        'Referer': 'https://anutibara.com/',
     }
     params = {
-        'neighborhood': '', 'page': '1', 'priceStart': '1',
-        'status': 'PROMOCION', 'type': 'APARTAMENTO',
+        'neighborhood': '',
+        'priceStart': '1',
+        'status': 'PROMOCION',
+        'type': 'APARTAESTUDIO,APARTAMENTO,CASA',
     }
-    
-    print("[*] Ejecutando Extractor: Anutibara (API)")
-    respuesta = client.fetch(url, params=params, headers=headers)
-    
-    if respuesta:
-        datos_json = respuesta.json()
-        ruta = _guardar_bronze(datos_json, "anutibara_api")
-        return ruta
-    return None
+
+    print("[*] Ejecutando Extractor: Anutibara (API, todas las páginas)")
+    promociones = []
+    total_esperado = None
+    pagina = 1
+
+    while total_esperado is None or len(promociones) < total_esperado:
+        params['page'] = str(pagina)
+        respuesta = client.fetch(url, params=params, headers=headers)
+
+        if not respuesta:
+            print(f"[-] Anutibara: no se pudo obtener la página {pagina}.")
+            return None
+
+        datos_pagina = respuesta.json()
+        datos = datos_pagina.get('data', {}) if isinstance(datos_pagina, dict) else {}
+        promociones_pagina = datos.get('promotions', []) if isinstance(datos, dict) else []
+        total_esperado = int(datos.get('total', 0) or 0) if isinstance(datos, dict) else 0
+
+        if not isinstance(promociones_pagina, list) or not promociones_pagina:
+            break
+
+        promociones.extend(promociones_pagina)
+        print(f"[*] Anutibara: página {pagina}, {len(promociones)}/{total_esperado} inmuebles.")
+        pagina += 1
+
+    datos_json = {
+        'code': 200,
+        'success': True,
+        'data': {
+            'total': len(promociones),
+            'promotions': promociones,
+        },
+    }
+    return _guardar_bronze(datos_json, "anutibara_api")
 
 def run_api_extractors():
     """Ejecuta todos los extractores API."""
