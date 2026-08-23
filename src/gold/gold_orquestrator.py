@@ -1,8 +1,15 @@
-import duckdb
 import os
-from .base_sql import obtener_sql_id_valido, obtener_sql_base_silver, query_validacion_ids
-from .marts.tendencias_mart import procesar_tendencias
+
+import duckdb
+
+from .base_sql import (
+    obtener_sql_base_silver,
+    obtener_sql_id_valido,
+    query_validacion_ids,
+)
 from .marts.conglomerados import procesar_conglomerado
+from .marts.tendencias_mart import procesar_tendencias
+
 
 def ejecutar_validacion_ids(base_silver_sql, id_valido_sql):
     """Ejecuta la validación de calidad de datos usando DuckDB."""
@@ -23,9 +30,10 @@ def ejecutar_validacion_ids(base_silver_sql, id_valido_sql):
 
 def generar_mart_tendencias():
     """
-    Orquestador principal de la Capa Gold.
     Invoca los scripts modulares de cada Mart.
     """
+
+    
     print("\n" + "="*50)
     print("INICIANDO CAPA GOLD: COMPILANDO MARTS (DUCKDB)")
     print("="*50)
@@ -40,13 +48,12 @@ def generar_mart_tendencias():
     # 2. Rutas de salida Optimizadas para Streamlit (Formato Parquet en lugar de CSV)
     ruta_tendencias = os.path.join("data", "gold", "tendencias_mercado.parquet")
     ruta_conglomerado = os.path.join("data", "gold", "conglomerado_barrios.parquet")
+
     
-    # 3. Ejecución modular (One Model, One File)
     try:
         df_tendencias = procesar_tendencias(base_silver_sql, ruta_tendencias)
         df_conglomerado = procesar_conglomerado(base_silver_sql, ruta_conglomerado)
         
-        # Usamos las variables para mostrar un resumen y evitar el warning del linter
         print(f"   -> Resumen: {len(df_tendencias)} filas de tendencias | {len(df_conglomerado)} filas de conglomerados.")
         
         print("\n✅ Capa Gold generada exitosamente mediante Modelado Dimensional.")

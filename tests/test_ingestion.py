@@ -18,6 +18,7 @@ def archivos_bronze_reales():
         
     return archivos
 
+
 def test_frescura_archivos_bronze(archivos_bronze_reales):
     """
     PRUEBA DE FRESCURA (Freshness):
@@ -26,9 +27,10 @@ def test_frescura_archivos_bronze(archivos_bronze_reales):
     """
     hoy = datetime.now().date()
     for archivo in archivos_bronze_reales:
-        # Extraemos la fecha de modificación (mtime) del archivo en el sistema operativo
+        
         mtime = datetime.fromtimestamp(archivo.stat().st_mtime).date()
         assert mtime == hoy, f"El archivo {archivo.name} es antiguo (modificado el {mtime})."
+
 
 def test_integridad_archivos_bronze(archivos_bronze_reales):
     """
@@ -56,6 +58,7 @@ def test_integridad_archivos_bronze(archivos_bronze_reales):
             assert "just a moment..." not in contenido_lower, \
                 f"{archivo.name} fue bloqueado por la pantalla de desafío de Cloudflare."
 
+
 def _contar_ids_distintos(objeto):
     """Recorre recursivamente el JSON buscando valores de id y cuenta cuáles son distintos."""
     ids = set()
@@ -66,7 +69,7 @@ def _contar_ids_distintos(objeto):
                 if clave == 'id':
                     try:
                         ids.add(str(item))
-                    except Exception:
+                    except Exception: 
                         pass
                 recorrer(item)
         elif isinstance(valor, list):

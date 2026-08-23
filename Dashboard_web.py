@@ -1,14 +1,15 @@
-import streamlit as st
+import os
+
 import pandas as pd
 import plotly.express as px
-import os
+import streamlit as st
 
 st.set_page_config(page_title="Radar Inmobiliario", page_icon="🏢", layout="wide")
 
 @st.cache_data
 def cargar_datos():
     """Carga los nuevos datos de la capa Gold generados por DuckDB en formato Parquet."""
-    # Cambiamos la lectura de .csv a .parquet (Lectura hiperrápida)
+    # Cambiamos la lectura de .csv a .parquet 
     ruta_tendencias = os.path.join("data", "gold", "tendencias_mercado.parquet")
     ruta_conglomerado = os.path.join("data", "gold", "conglomerado_barrios.parquet")
     

@@ -1,8 +1,9 @@
 import os
 import re
+from datetime import datetime
+
 import pandas as pd
 from bs4 import BeautifulSoup
-from datetime import datetime
 
 COLUMNAS_PERMITIDAS = [
     'id_inmueble', 'fuente', 'barrio', 'precio_cop', 
@@ -28,6 +29,7 @@ def _guardar_silver_csv(df, fuente_nombre):
     df_exportable.to_csv(ruta_csv, index=False)
     print(f"[+] SILVER: Datos limpios guardados en CSV -> {ruta_csv}")
     return df
+
 
 def limpiar_santafe_ssr(ruta_archivo):
     """Lee el HTML de Bronze, extrae con BeautifulSoup y retorna DF."""

@@ -7,10 +7,6 @@ def obtener_sql_id_valido():
     """
 
 def obtener_sql_base_silver(id_valido_sql):
-    """
-    Lee los CSVs de Silver usando read_csv_auto. Se optimizó para extraer
-    la fecha directamente en la lectura y reducir subconsultas (CTEs) redundantes.
-    """
     return f"""
     WITH rangos_def AS (
         SELECT * FROM (VALUES
