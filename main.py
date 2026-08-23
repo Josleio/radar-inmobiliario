@@ -5,7 +5,6 @@ from src.bronze.ingest_web import run_web_scrapers
 from src.silver.clean_api import limpiar_anutibara_api, limpiar_panda_api
 from src.silver.clean_ssr import limpiar_santafe_ssr
 
-
 def ejecutar_ingesta_bronze():
     """
     Punto de entrada único. Controla el flujo completo de la capa Bronze.
