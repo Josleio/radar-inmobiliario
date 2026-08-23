@@ -5,3 +5,4 @@ pandas
 pyarrow
 duckdb
 pytest
+numpy
