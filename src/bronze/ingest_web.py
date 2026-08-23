@@ -1,8 +1,11 @@
 
 import os
 from datetime import datetime
+
 from bs4 import BeautifulSoup
+
 from src.utils.scraper_client import ScraperClient
+
 
 def _guardar_bronze_html(html_content, fuente_nombre):
     """
@@ -10,13 +13,13 @@ def _guardar_bronze_html(html_content, fuente_nombre):
     """
     fecha_hoy = datetime.now().strftime("%Y-%m-%d")
     timestamp = datetime.now().strftime("%H%M")
+    carpeta_hora = f"{timestamp[0:2]}H{timestamp[2:4]}M"
     
-    directorio_bronze = os.path.join("data", "bronze", fecha_hoy, "SSRs", timestamp)
-    os.makedirs(directorio_bronze, exist_ok=True)
+    directorio_hora = os.path.join("data", "bronze", fecha_hoy, "SSRs", carpeta_hora)
+    os.makedirs(directorio_hora, exist_ok=True)
     
-    # Eliminamos el timestamp para sobrescribir en el mismo día
     nombre_archivo = f"{fuente_nombre}.html"
-    ruta_completa = os.path.join(directorio_bronze, nombre_archivo)
+    ruta_completa = os.path.join(directorio_hora, nombre_archivo)
     
     with open(ruta_completa, 'w', encoding='utf-8') as archivo:
         archivo.write(html_content)
@@ -35,6 +38,7 @@ def _construir_url_santafe(pagina):
 def _contar_inmuebles_en_html(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
     return len(soup.find_all('div', class_='property-card'))
+
 
 def extraer_santafe(client: ScraperClient, max_paginas=None):
     """
@@ -90,6 +94,7 @@ def extraer_santafe(client: ScraperClient, max_paginas=None):
     ruta = _guardar_bronze_html(html_unificado, "santafe_ssr")
     print(f"[+] Santa Fe: {len(html_paginas)} páginas extraídas y unificadas")
     return ruta
+
 
 def run_web_scrapers():
     """Ejecuta todos los extractores web (SSR)."""

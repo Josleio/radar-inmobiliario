@@ -1,7 +1,8 @@
 import json
 import os
-import pandas as pd
 from datetime import datetime
+
+import pandas as pd
 
 # CONTRATO DE DATOS (Lista Blanca):
 # Solo estas columnas sobrevivirán. Cualquier nodo como 'agents', 'owner_contact', 
@@ -17,6 +18,7 @@ def _a_entero(valor):
         return int(float(str(valor).replace(',', '').strip())) if valor not in (None, '') else 0
     except (TypeError, ValueError):
         return 0
+
 
 def _guardar_silver_csv(df, fuente_nombre):
     """Guarda el DataFrame limpio en la capa Silver en formato CSV."""
@@ -36,9 +38,10 @@ def _guardar_silver_csv(df, fuente_nombre):
 
     ruta_csv = os.path.join(directorio_seccion, f"{fuente_nombre}_{timestamp}.csv")
     df_exportable.to_csv(ruta_csv, index=False)
-    print(f"[+] SILVER: Datos limpios (Sin PII) guardados en CSV -> {ruta_csv}")
+    print(f"[+] SILVER: Datos limpios guardados en CSV -> {ruta_csv}")
 
     return df
+
 
 def limpiar_panda_api(ruta_archivo):
     """Lee el JSON crudo de Panda, extrae solo la lista blanca y retorna un DF."""
@@ -56,11 +59,15 @@ def limpiar_panda_api(ruta_archivo):
         if not item.get('forRent', False): continue
 
         precio = _a_entero(item.get('canon', 0))
+        codigo = item.get('code')
+        if not codigo:
+            continue  # Si no tiene código, descartamos
+        
         area = _a_entero(item.get('builtArea', 0))
         
         # APLICACIÓN DE LISTA BLANCA (Ignoramos el nodo 'agents' por completo)
         inmueble = {
-            'id_inmueble': f"PANDA-{item.get('code', 'UNK')}",
+            'id_inmueble': f"PANDA-{codigo}",
             'fuente': 'Panda Inmobiliaria',
             'barrio': str(item.get('suburb', 'Sin Barrio')).strip(),
             'precio_cop': precio,
@@ -75,8 +82,9 @@ def limpiar_panda_api(ruta_archivo):
     df = df.drop_duplicates(subset=['id_inmueble'], keep='first')
     return _guardar_silver_csv(df, "panda_limpio")
 
+
 def _extraer_area_y_detalles(property_data):
-    """Extrae área, habitaciones y baños desde la estructura de facilities de Anutibara."""
+    """Extrae área, habitaciones y baños."""
     area = 0
     habitaciones = 0
     banos = 0
@@ -105,7 +113,7 @@ def _extraer_area_y_detalles(property_data):
 
 
 def _listar_promociones_anutibara(datos):
-    """Busca recursivamente la colección de promociones o inmuebles dentro del JSON."""
+    """Busca recursivamente la colección de inmuebles dentro del JSON."""
     if isinstance(datos, list):
         return datos
 

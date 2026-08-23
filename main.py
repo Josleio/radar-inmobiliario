@@ -1,14 +1,16 @@
-import pandas as pd
-import pytest
+import os
+import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
-from src.bronze.__init__ import run_api_extractors, run_web_scrapers
-from src.silver.clean_api import limpiar_anutibara_api, limpiar_panda_api
-from src.silver.clean_ssr import limpiar_santafe_ssr
-from src.gold.gold_orquestrator import generar_mart_tendencias
-import subprocess
-import os
-import sys
+
+import pandas as pd
+import pytest
+
+from src.bronze import run_api_extractors, run_web_scrapers
+from src.gold import generar_mart_tendencias
+from src.silver import limpiar_anutibara_api, limpiar_panda_api, limpiar_santafe_ssr
+
 
 def guardar_cuarentena(df):
     """Guarda los registros con precio nulo o cero fuera del consolidado Silver."""
@@ -89,6 +91,7 @@ def ejecutar_transformacion_silver(api_rutas, web_rutas):
 
     dataframes_limpios = []
     conteos_api = []
+    conteos_web = []
 
     # 1. Limpiar Pandas (API)
     ruta_panda = api_rutas.get("panda")
@@ -112,6 +115,8 @@ def ejecutar_transformacion_silver(api_rutas, web_rutas):
     ruta_santafe = web_rutas.get("santafe")
     if ruta_santafe:
         df_santafe = limpiar_santafe_ssr(ruta_santafe)
+        cantidad_santafe = 0 if df_santafe is None else len(df_santafe)
+        conteos_web.append({"fuente": "Santa Fe", "cantidad_inmuebles": cantidad_santafe})
         if df_santafe is not None and not df_santafe.empty:
             dataframes_limpios.append(df_santafe)
 
@@ -135,6 +140,10 @@ def ejecutar_transformacion_silver(api_rutas, web_rutas):
         print("📊 CANTIDAD DE INMUEBLES ENCONTRADOS POR API")
         print("="*50)
         print(df_resumen_apis.to_string(index=False))
+
+        print("📊 CANTIDAD DE INMUEBLES ENCONTRADOS SSR")
+        df_resumen_web = pd.DataFrame(conteos_web)
+        print(df_resumen_web.to_string(index=False))
 
         print("\n" + "="*50)
         print("📊 TABLA DE INMUEBLES CONSOLIDADOS (SILVER LAYER)")
@@ -254,13 +263,11 @@ def menu_principal():
             
             if sub_op == '1':
                 print("Iniciando servidor web...")
-                # Corregido al nombre exacto de tu archivo
+
                 archivo_dashboard = "Dashboard_web.py" 
                 
                 if os.path.exists(archivo_dashboard):
                     try:
-                        # subprocess.Popen lanza la app sin bloquear el menú
-                        # Le pasamos el flag para deshabilitar la telemetría y omitir el prompt del correo
                         subprocess.Popen([
                             sys.executable, "-m", "streamlit", "run", archivo_dashboard,
                             "--browser.gatherUsageStats=false"

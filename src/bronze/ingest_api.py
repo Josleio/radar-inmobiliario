@@ -1,7 +1,9 @@
 import json
 import os
 from datetime import datetime
+
 from src.utils.scraper_client import ScraperClient
+
 
 def _guardar_bronze(datos, fuente_nombre, extension="json"):
     """
@@ -23,8 +25,9 @@ def _guardar_bronze(datos, fuente_nombre, extension="json"):
         else:
             archivo.write(str(datos))
             
-    print(f"[+] BRONZE: Datos guardados -> {ruta_completa}")
+    print(f"[+] BRONZE: Datos API guardados -> {ruta_completa}")
     return ruta_completa
+
 
 def extraer_panda(client: ScraperClient):
     """Extrae datos de la API de Panda Inmobiliaria."""
@@ -44,7 +47,7 @@ def extraer_panda(client: ScraperClient):
 
 
 def extraer_anutibara(client: ScraperClient):
-    """Extrae todas las promociones de Anutibara recorriendo sus páginas."""
+    """Extrae datos de Anutibara recorriendo sus páginas."""
     url = 'https://api.arrendamientosnutibara.com/promotion/search/neighbourhood'
     headers = {
         'Referer': 'https://anutibara.com/',
@@ -57,11 +60,11 @@ def extraer_anutibara(client: ScraperClient):
     }
 
     print("[*] Ejecutando Extractor: Anutibara (API, todas las páginas)")
-    promociones = []
+    inmuebles = []
     total_esperado = None
     pagina = 1
 
-    while total_esperado is None or len(promociones) < total_esperado:
+    while total_esperado is None or len(inmuebles) < total_esperado:
         params['page'] = str(pagina)
         respuesta = client.fetch(url, params=params, headers=headers)
 
@@ -71,25 +74,26 @@ def extraer_anutibara(client: ScraperClient):
 
         datos_pagina = respuesta.json()
         datos = datos_pagina.get('data', {}) if isinstance(datos_pagina, dict) else {}
-        promociones_pagina = datos.get('promotions', []) if isinstance(datos, dict) else []
+        inmuebles_pagina = datos.get('promotions', []) if isinstance(datos, dict) else []
         total_esperado = int(datos.get('total', 0) or 0) if isinstance(datos, dict) else 0
 
-        if not isinstance(promociones_pagina, list) or not promociones_pagina:
+        if not isinstance(inmuebles_pagina, list) or not inmuebles_pagina:
             break
 
-        promociones.extend(promociones_pagina)
-        print(f"[*] Anutibara: página {pagina}, {len(promociones)}/{total_esperado} inmuebles.")
+        inmuebles.extend(inmuebles_pagina)
+        print(f"[*] Anutibara: página {pagina}, {len(inmuebles)}/{total_esperado} inmuebles.")
         pagina += 1
 
     datos_json = {
         'code': 200,
         'success': True,
         'data': {
-            'total': len(promociones),
-            'promotions': promociones,
+            'total': len(inmuebles),
+            'promotions': inmuebles,
         },
     }
     return _guardar_bronze(datos_json, "anutibara_api")
+
 
 def run_api_extractors():
     """Ejecuta todos los extractores API."""
