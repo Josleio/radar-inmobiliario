@@ -1,27 +1,68 @@
 # 🏢 Radar Inmobiliario - ETL Data Pipeline
 
 ## Descripcion 
-Este proyecto es un pipeline de datos (ETL) automatizado diseñado para extraer, limpiar y transformar datos no estructurados del sector inmobiliario. El objetivo principal es estructurar la información caótica de la web para habilitar el análisis de tendencias y métricas de mercado mediante una arquitectura robusta.
+Este proyecto es un pipeline de datos (ETL) automatizado diseñado para extraer, limpiar y transformar datos no estructurados del sector inmobiliario. El objetivo principal es estructurar la información caótica de la web para habilitar el análisis de tendencias y métricas de mercado.
 
-## ⚙️ Arquitectura de Datos
-El flujo de datos está diseñado bajo el modelo Medallion para garantizar la calidad e integridad:
-*   **🥉 Capa Bronze (Raw):** Ingesta de datos crudos no estructurados extraídos de fuentes web mediante scripts en Python.
-*   **🥈 Capa Silver (Cleansed):** Limpieza, manejo de valores nulos (excepciones) y estandarización de formatos utilizando APIs de LLM para forzar esquemas JSON estrictos.
-*   **🥇 Capa Gold (Curated):** Inyección de los datos modelados en una base de datos relacional (SQL) listos para el consumo de dashboards analíticos.
+
+## ⚙️ Arquitectura de Datos (Medallion Architecture)
+
+*   **🥉 Capa Bronze (Raw):** Ingesta de datos crudos (`.json` y `.html`) extraídos directamente de APIs REST (Panda Inmobiliaria, Nutibara) y renderizado SSR (Arrendamientos Santa Fe). Los datos se almacenan "as-is" particionados por fecha de ejecución.
+*   **🥈 Capa Silver (Cleansed):** Procesamiento y normalización. Se aplica limpieza de caracteres, eliminación de PII (Información de Identificación Personal), y se fuerza un contrato de datos estricto mediante "listas blancas" de columnas. Los registros que no superan las validaciones de negocio (ej. precios irreales) son enviados a un sistema de **Cuarentena**. Los datos limpios se exportan en formato `.csv`.
+*   **🥇 Capa Gold (Curated):** Transformación analítica y Data Marts. Se utiliza DuckDB para ejecutar consultas SQL avanzadas (CTEs, Window Functions) directamente sobre los archivos, deduplicando inmuebles entre fuentes y generando las métricas finales. Los resultados se guardan en `.parquet` para máxima velocidad de lectura en el dashboard.
 
 ## 🛠️ Stack Tecnológico
-*   **Lenguajes:** Python 3.14, SQL
-*   **Orquestación:** Apache Airflow (En migración)
-*   **Infraestructura & Cloud:** AWS (S3 / RDS - En despliegue)
-*   **Procesamiento:** Extracción basada en IA (JSON strict formatting)
+
+*   **Core:** Python 3.14
+*   **Extracción (Bronze):** `requests`, `cloudscraper` (WAF Bypass & Politeness), `beautifulsoup4`
+*   **Transformación (Silver):** `pandas`
+*   **Modelado SQL (Gold):** `duckdb`, `pyarrow`
+*   **Visualización:** `streamlit`
+
+## Linaje de Datos:
+
+Fuentes (API/SSR) ➔ Bronze Layer (JSON/HTML crudo).
+
+Bronze Layer ➔ Transformación Pandas ➔ Silver Layer (Parquet particionado, PII removido).
+
+Silver Layer ➔ DuckDB (SQL) ➔ Gold Layer (Marts analíticos agrupados por barrio).
+
+## 📁 Estructura del Proyecto
+
+```text
+radar-inmobiliario/
+├── data/                   # Almacenamiento local (Ignorado en Git)
+│   ├── bronze/             # JSON y HTML particionado por fecha/hora
+│   ├── silver/             # CSVs limpios y estandarizados
+│   └── gold/               # Data Marts en formato Parquet
+├── src/
+│   ├── bronze/
+│   │   ├── ingest_api.py   # Paginación y extracción de APIs REST
+│   │   └── ingest_web.py   # Navegación y scraping de SSR
+│   ├── silver/
+│   │   ├── clean_api.py    # Filtros, limpieza y normalización de JSONs
+│   │   └── clean_ssr.py    # Parseo de DOM (BS4) y extracción CSS
+│   ├── gold/
+│   │   ├── gold_orquestrator.py # Ejecución de validaciones y modelos
+│   │   ├── base_sql.py     # Consultas SQL maestras y CTEs (DuckDB)
+│   │   └── marts/          # Lógica modular de reportes específicos
+│   ├── utils/
+│   │   └── scraper_client.py # Cliente HTTP con manejo de reintentos y anti-bot
+│   └── notifications/
+│       └── telegram_bot.py # Módulo de alertas del pipeline
+├── tests/                  # Pruebas de calidad de datos
+├── main.py                 # Orquestador principal y menú interactivo
+├── Dashboard_web.py        # Interfaz analítica (Streamlit)
+├── requirements.txt        # Dependencias del proyecto
+└── README.md
+```
 
 ## 🚧 Estado del Proyecto 
 Este proyecto se encuentra en desarrollo activo e iteración continua:
 - [x] Desarrollo de scripts de extracción y lógica defensiva (`try-except`).
-- [x] Implementación de IA para estructuración de datos.
-- [ ] Refactorización modular para ejecución en clúster.
 - [ ] Migración de la orquestación local a DAGs de **Apache Airflow**.
 - [ ] Integración de almacenamiento distribuido mediante **AWS**.
+- [ ] Test y limpieza para métricas con mínimo sesgo.
+
 
 ## Configuración y Uso Local
 
@@ -41,39 +82,3 @@ python -m venv .venv
 2. Instalar dependencias: `pip install -r requirements.txt`
 3. Ejecutar el orquestador principal: `python main.py`
    
-## 🏗️ Arquitectura del Proyecto
-
-El flujo de datos está estructurado en tres capas lógicas para garantizar resiliencia ante fallos de red y consistencia en el modelado de datos:
-
-*   **Bronze (Datos Crudos):** Almacenamiento inmutable de la ingesta diaria.
-*   **Silver (Datos Limpios):** Estandarización relacional y sanitización de seguridad.
-*   **Gold (Analítica):** Modelos dimensionales y agregaciones (Pendiente de implementación).
-
-##Linaje de Datos (Data Lineage):
-
-Fuentes (API/SSR) ➔ Bronze Layer (JSON/HTML crudo).
-
-Bronze Layer ➔ Transformación Pandas ➔ Silver Layer (Parquet particionado, PII removido).
-
-Silver Layer ➔ DuckDB (SQL) ➔ Gold Layer (Marts analíticos agrupados por barrio).
-
-## Structure
-
-- `src/utils`: shared helpers
-- `src/bronze`: raw ingestion layer
-- `src/silver`: cleaning layer
-- `src/gold`: database and modeling layer
-- `src/notifications`: alerting layer
-- `tests`: test placeholders and mock data
-
-
-```text
-realestate_analytics/
-├── data/
-│   ├── bronze/ (JSON/HTML crudos por fecha)
-│   └── silver/ (Archivos Parquet limpios)
-├── src/
-│   ├── bronze/ (Extractores REST y SSR)
-│   ├── silver/ (Filtros de Data Contract y eliminación PII)
-│   └── utils/  (Clientes HTTP HTTP y manejo de reintentos)
-└── main.py     (Orquestador central)
