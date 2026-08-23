@@ -4,3 +4,4 @@ cloudscraper
 pandas
 pyarrow
 duckdb
+pytest
