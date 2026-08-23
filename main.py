@@ -5,8 +5,10 @@ from pathlib import Path
 from src.bronze.__init__ import run_api_extractors, run_web_scrapers
 from src.silver.clean_api import limpiar_anutibara_api, limpiar_panda_api
 from src.silver.clean_ssr import limpiar_santafe_ssr
-from src.gold.update_marts import generar_mart_tendencias
-
+from src.gold.gold_orquestrator import generar_mart_tendencias
+import subprocess
+import os
+import sys
 
 def guardar_cuarentena(df):
     """Guarda los registros con precio nulo o cero fuera del consolidado Silver."""
@@ -63,6 +65,7 @@ def ejecutar_ingesta_bronze():
     
     return api_results, web_results
 
+
 def ejecutar_pruebas_ingestion():
     """Ejecuta los tests de calidad de la capa Bronze (Frescura, Volumen, Integridad)."""
     print("\n" + "="*50)
@@ -74,6 +77,7 @@ def ejecutar_pruebas_ingestion():
     else:
         print("[!] Las pruebas de ingesta FALLARON.")
     return exit_code
+
 
 def ejecutar_transformacion_silver(api_rutas, web_rutas):
     """
@@ -146,7 +150,9 @@ def ejecutar_transformacion_silver(api_rutas, web_rutas):
 
     return dataframes_limpios
 
+
 def ejecutar_pruebas_cleaning():
+
     """Ejecuta la batería de pruebas estructurales de la capa Silver."""
     print("\n" + "="*50)
     print("EJECUTANDO PRUEBAS DE CALIDAD SILVER (CLEANING)")
@@ -159,22 +165,123 @@ def ejecutar_pruebas_cleaning():
     return exit_code
 
 
+def obtener_rutas_bronze_recientes():
+    """
+    Escanea la carpeta Bronze de hoy de forma recursiva para recuperar las rutas de los 
+    archivos crudos más recientes. Soporta anidamiento en subcarpetas (APIs, SSRs, etc).
+    """
+    fecha_hoy = datetime.now().strftime("%Y-%m-%d")
+    ruta_bronze = Path(f"data/bronze/{fecha_hoy}")
+    
+    api_rutas = {}
+    web_rutas = {}
+    
+    if not ruta_bronze.exists():
+        print(f"[-] No se encontró la carpeta Bronze para hoy: {ruta_bronze}")
+        return api_rutas, web_rutas
+        
+    # Usar rglob para buscar en todas las subcarpetas y ordenar por la más reciente
+    archivos = list(ruta_bronze.rglob("*.*"))
+    archivos.sort(key=lambda x: x.stat().st_mtime, reverse=True)
+        
+    for archivo in archivos:
+        if not archivo.is_file():
+            continue
+            
+        nombre = archivo.name.lower()
+        # Solo tomamos el primero que aparezca (el más reciente) para cada fuente
+        if "panda" in nombre and "panda" not in api_rutas:
+            api_rutas["panda"] = str(archivo)
+        elif "anutibara" in nombre and "anutibara" not in api_rutas:
+            api_rutas["anutibara"] = str(archivo)
+        elif "santafe" in nombre and "santafe" not in web_rutas:
+            web_rutas["santafe"] = str(archivo)
+            
+    return api_rutas, web_rutas
+
+
+def menu_principal():
+    """Interfaz interactiva por consola para ejecutar módulos aislados."""
+    while True:
+        print("\n" + "="*50)
+        print("PANEL DE CONTROL - RADAR INMOBILIARIO")
+        print("="*50)
+        print("1. Ejecutar Pipeline Completo y abrir Dashboards")
+        print("2. Extraccion e ingesta de Datos (Bronze)")
+        print("3. Transformación y Limpieza de Datos(Silver)")
+        print("4. Cargar Datos a Mart de Tendencias (Gold)")
+        print("5. Abrir Dashboards")
+        print("0. Salir")
+        
+        opcion = input("\nSelecciona una opción (0-4): ").strip()
+        
+        if opcion == '0':
+            print("Saliendo del Radar Inmobiliario...")
+            break
+            
+        elif opcion == '1':
+            rutas_api, rutas_web = ejecutar_ingesta_bronze()
+            if ejecutar_pruebas_ingestion() == 0:
+                dataframes = ejecutar_transformacion_silver(rutas_api, rutas_web)
+                if dataframes and ejecutar_pruebas_cleaning() == 0:
+                    generar_mart_tendencias()
+            print("\n✅ Pipeline completo finalizado.")
+            
+        elif opcion == '2':
+            ejecutar_ingesta_bronze()
+            ejecutar_pruebas_ingestion()
+            print("\n✅ Extracción Bronze finalizada.")
+            
+        elif opcion == '3':
+            # Intentamos recuperar los archivos de Bronze de hoy
+            rutas_api, rutas_web = obtener_rutas_bronze_recientes()
+            if not rutas_api and not rutas_web:
+                print("\n[!] No hay datos crudos para hoy. Por favor, ejecuta Bronze primero (Opción 2).")
+            else:
+                dataframes = ejecutar_transformacion_silver(rutas_api, rutas_web)
+                if dataframes:
+                    ejecutar_pruebas_cleaning()
+                print("\n✅ Transformación Silver finalizada.")
+                
+        elif opcion == '4':
+            generar_mart_tendencias()
+            print("\n✅ Capa Gold finalizada.")
+            
+        elif opcion == '5':
+            print("\n[1] Abrir Dashboard Web (Streamlit - Automático)")
+            print("[2] Abrir Archivo de Power BI (Requiere tener un .pbix)")
+            sub_op = input("Elige (1-2): ").strip()
+            
+            if sub_op == '1':
+                print("Iniciando servidor web...")
+                # Corregido al nombre exacto de tu archivo
+                archivo_dashboard = "Dashboard_web.py" 
+                
+                if os.path.exists(archivo_dashboard):
+                    try:
+                        # subprocess.Popen lanza la app sin bloquear el menú
+                        # Le pasamos el flag para deshabilitar la telemetría y omitir el prompt del correo
+                        subprocess.Popen([
+                            sys.executable, "-m", "streamlit", "run", archivo_dashboard,
+                            "--browser.gatherUsageStats=false"
+                        ])
+                    except Exception as e:
+                        print(f"[-] Ocurrió un error al lanzar Streamlit: {e}")
+                else:
+                    print(f"[-] ERROR: No se encontró el archivo '{archivo_dashboard}' en la raíz del proyecto.")
+                    
+            elif sub_op == '2':
+                # Reemplaza 'dashboard.pbix' con la ruta real de tu archivo de Power BI
+                ruta_pbi = os.path.abspath("dashboard.pbix")
+                if os.path.exists(ruta_pbi):
+                    print("Abriendo Power BI...")
+                    os.startfile(ruta_pbi)
+                else:
+                    print("[-] No se encontró el archivo 'dashboard.pbix' en esta carpeta.")
+            
+        else:
+            print("[-] Opción inválida. Intenta nuevamente.")
+            
+
 if __name__ == "__main__":
-    # 1. Ejecutar Ingesta Bronze
-    rutas_api, rutas_web = ejecutar_ingesta_bronze()
-    
-    # 2. Gate de Calidad 1: Auditoría de Ingesta (Bronze)
-    exit_ingesta = ejecutar_pruebas_ingestion()
-    if exit_ingesta != 0:
-        raise SystemExit("Pipeline abortado por fallos de calidad en la capa Bronze.")
-        
-    # 3. Ejecutar Transformación a Silver
-    dataframes_limpios = ejecutar_transformacion_silver(rutas_api, rutas_web)
-    
-    # 4. Gate de Calidad 2: Auditoría de Limpieza (Silver)
-    if dataframes_limpios:
-        exit_cleaning = ejecutar_pruebas_cleaning()
-        if exit_cleaning != 0:
-            raise SystemExit("Pipeline abortado por fallos estructurales en la capa Silver.")
-        
-    generar_mart_tendencias()
+    menu_principal()
