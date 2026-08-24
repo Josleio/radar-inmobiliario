@@ -6,4 +6,5 @@ pyarrow
 duckdb
 pytest
 numpy
-python-dateutil
+plotly
+streamlit
