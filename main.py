@@ -222,7 +222,7 @@ def menu_principal():
         print("5. Abrir Dashboards")
         print("0. Salir")
         
-        opcion = input("\nSelecciona una opción (0-4): ").strip()
+        opcion = input("\nSelecciona una opción (0-5): ").strip()
         
         if opcion == '0':
             print("Saliendo del Radar Inmobiliario...")
@@ -291,4 +291,5 @@ def menu_principal():
             
 
 if __name__ == "__main__":
+
     menu_principal()

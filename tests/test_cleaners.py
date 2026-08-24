@@ -1,6 +1,5 @@
-import pandas as pd
+import pandas as pd  # noqa: I001
 import pytest
-from src.silver.clean_api import limpiar_panda_api
 from pathlib import Path
 from datetime import datetime
 
