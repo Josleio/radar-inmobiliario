@@ -78,7 +78,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 ```
 Asegúrate de que este bien instalando probando el comando 'uv' en tu ide.
 Clona el repositorio, y acciona
-
-uv pip sync requirements.txt
-
+```
+uv pip install -r requirements.txt
+```
 se descargaran los requisitos y podras usar el entorno virtual en tu pc, ahora solo acciones main.py!
