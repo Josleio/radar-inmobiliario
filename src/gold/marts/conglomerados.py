@@ -10,11 +10,6 @@ def query_conglomerado_barrios(base_silver_sql):
             AVG(precio_cop) AS precio_promedio_barrio,
             COUNT(*) AS cantidad_inmuebles
         FROM inmuebles_unicos
-        WHERE precio_cop IS NOT NULL
-          AND precio_cop > 0
-          AND barrio IS NOT NULL
-          AND TRIM(barrio) <> ''
-          AND barrio <> 'Sin Barrio'
         GROUP BY barrio
     ),
     barrios_clasificados AS (

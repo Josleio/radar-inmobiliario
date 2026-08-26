@@ -9,7 +9,12 @@ import pytest
 
 from src.bronze import run_api_extractors, run_web_scrapers
 from src.gold import generar_mart_tendencias
-from src.silver import limpiar_anutibara_api, limpiar_panda_api, limpiar_santafe_ssr
+from src.silver import (
+    _guardar_silver_csv,
+    limpiar_anutibara_api,
+    limpiar_panda_api,
+    limpiar_santafe_ssr,
+)
 
 
 def guardar_cuarentena(df):
@@ -30,6 +35,41 @@ def guardar_cuarentena(df):
 
 
 def ejecutar_ingesta_bronze():
+    """
+    Orquestador optimizado. Ahora delega la responsabilidad a los módulos
+    OOP, recibiendo un diccionario con los resultados del pipeline.
+    """
+    print("\n" + "="*50)
+    print("INICIANDO PIPELINE: CAPA BRONZE (ARQUITECTURA OOP)")
+    print("="*50)
+    
+    resumen_ejecucion = {"exitosas": [], "fallidas": []}
+    
+    try:
+        # 1. Ejecutar extractores API (JSON)
+        resultados_api = run_api_extractors()
+        
+        # 2. Ejecutar extractores Web SSR (HTML)
+        resultados_ssr = run_web_scrapers()
+        
+        # Unimos los resultados para el reporte
+        todos_los_resultados = {**resultados_api, **resultados_ssr}
+        
+        for fuente, ruta_archivo in todos_los_resultados.items():
+            if ruta_archivo:
+                resumen_ejecucion["exitosas"].append(fuente)
+            else:
+                resumen_ejecucion["fallidas"].append(fuente)
+                
+    except Exception as e:
+        print(f"\n[X] Error general en orquestador de Bronze: {e}")
+
+    # Reporte final
+    print("\n" + "="*50)
+    print("REPORTE DE EJECUCIÓN BRONZE")
+    print(f"Exitosas: {len(resumen_ejecucion['exitosas'])} -> {resumen_ejecucion['exitosas']}")
+    print(f"Fallidas: {len(resumen_ejecucion['fallidas'])} -> {resumen_ejecucion['fallidas']}")
+    print("="*50)
     """
     Controla la ejecución de la capa Bronze de forma aislada.
     """
@@ -133,6 +173,10 @@ def ejecutar_transformacion_silver(api_rutas, web_rutas):
     else:
         df_master = pd.DataFrame()
 
+    # Guardar el DataFrame final en un archivo CSV
+    if not df_master.empty:
+        _guardar_silver_csv(df_master, "consolidado_silver")
+        
     # Consolidar para vista previa
     if not df_master.empty:
         df_resumen_apis = pd.DataFrame(conteos_api)
@@ -176,35 +220,37 @@ def ejecutar_pruebas_cleaning():
 
 def obtener_rutas_bronze_recientes():
     """
-    Escanea la carpeta Bronze de hoy de forma recursiva para recuperar las rutas de los 
-    archivos crudos más recientes. Soporta anidamiento en subcarpetas (APIs, SSRs, etc).
+    Escanea la carpeta Bronze de hoy usando el nuevo esquema de Hive Partitioning.
+    Recupera el archivo raw_data_*.ext más reciente para cada fuente.
     """
-    fecha_hoy = datetime.now().strftime("%Y-%m-%d")
-    ruta_bronze = Path(f"data/bronze/{fecha_hoy}")
+    now = datetime.now()
+    base_bronze = Path("data/bronze")
     
+    fuentes = ["panda_api", "anutibara_api", "santafe_ssr"]
     api_rutas = {}
     web_rutas = {}
     
-    if not ruta_bronze.exists():
-        print(f"[-] No se encontró la carpeta Bronze para hoy: {ruta_bronze}")
+    if not base_bronze.exists():
         return api_rutas, web_rutas
         
-    # Usar rglob para buscar en todas las subcarpetas y ordenar por la más reciente
-    archivos = list(ruta_bronze.rglob("*.*"))
-    archivos.sort(key=lambda x: x.stat().st_mtime, reverse=True)
+    for fuente in fuentes:
+        # Ruta siguiendo el nuevo esquema: fuente=X/year=Y/month=M/day=D/
+        ruta_dia = base_bronze / f"fuente={fuente}" / f"year={now.year}" / f"month={now.month:02d}" / f"day={now.day:02d}"
         
-    for archivo in archivos:
-        if not archivo.is_file():
-            continue
-            
-        nombre = archivo.name.lower()
-        # Solo tomamos el primero que aparezca (el más reciente) para cada fuente
-        if "panda" in nombre and "panda" not in api_rutas:
-            api_rutas["panda"] = str(archivo)
-        elif "anutibara" in nombre and "anutibara" not in api_rutas:
-            api_rutas["anutibara"] = str(archivo)
-        elif "santafe" in nombre and "santafe" not in web_rutas:
-            web_rutas["santafe"] = str(archivo)
+        if ruta_dia.exists():
+            # Buscar archivos raw_data_*.json o raw_data_*.html
+            archivos = list(ruta_dia.glob("raw_data_*.*"))
+            if archivos:
+                # Ordenar por fecha de creación (el más reciente)
+                archivos.sort(key=lambda x: x.stat().st_mtime, reverse=True)
+                ruta_final = str(archivos[0])
+                
+                if "santafe" in fuente:
+                    web_rutas["santafe"] = ruta_final
+                elif "panda" in fuente:
+                    api_rutas["panda"] = ruta_final
+                elif "anutibara" in fuente:
+                    api_rutas["anutibara"] = ruta_final
             
     return api_rutas, web_rutas
 
@@ -222,7 +268,7 @@ def menu_principal():
         print("5. Abrir Dashboards")
         print("0. Salir")
         
-        opcion = input("\nSelecciona una opción (0-4): ").strip()
+        opcion = input("\nSelecciona una opción (0-5): ").strip()
         
         if opcion == '0':
             print("Saliendo del Radar Inmobiliario...")

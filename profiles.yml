@@ -1,0 +1,18 @@
+radar_inmobiliario:
+target: dev
+outputs:
+dev:
+type: duckdb
+# Esta es la ruta al archivo de tu base de datos local (se creará sola si no existe)
+path: 'data/gold/inmobiliaria.duckdb'
+
+  # Opcional: Extensiones de DuckDB que vas a necesitar
+  extensions:
+    - httpfs
+    - parquet
+    
+  # Opcional: Threads para concurrencia al compilar
+  threads: 4
+  
+  # Variables del modelo dbt
+  schema: dev # El esquema donde se crearán las vistas (staging)

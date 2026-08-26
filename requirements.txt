@@ -4,3 +4,6 @@ cloudscraper
 pandas
 pyarrow
 duckdb
+pytest
+numpy
+streamlit

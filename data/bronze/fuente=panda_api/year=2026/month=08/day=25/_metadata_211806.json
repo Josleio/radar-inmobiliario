@@ -1,0 +1,7 @@
+{
+    "fuente": "panda_api",
+    "timestamp_extraccion": "2026-08-25T21:18:06.817361",
+    "formato": "json",
+    "ruta_archivo": "data\\bronze\\fuente=panda_api\\year=2026\\month=08\\day=25\\raw_data_211806.json",
+    "registros_estimados": 796
+}
